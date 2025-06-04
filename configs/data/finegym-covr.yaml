@@ -1,0 +1,36 @@
+dataname: finegym-covr
+_target_: src.data.finegym_covr.WebVidCoVRDataModule
+
+image_size: ${model.ckpt.image_size}
+iterate: "target_video"
+vid_query_method: middle
+vid_frames: 1
+emb_pool: query
+n_embs: 15
+si_tc_weight: ${model.loss_terms.si_tc_weight}
+
+batch_size: ${machine.batch_size}
+num_workers: ${machine.num_workers}
+model: "blip"
+
+annotation:
+  # train: /home/animesh/FineGym-CoVR-Github/annotations/train_video_pairs_v3.csv
+  train: /home/animesh/composed-video-retrieval/train_video_pairs_v3_desc.csv
+  val: /home/animesh/FineGym-CoVR-Github/annotations/val_video_pairs_v2.csv
+
+vid_dirs:
+  train: /home/animesh/FineGD_data_vid_all
+  val: /home/animesh/FineGD_data_vid_all
+
+emb_dirs:
+  train: /home/animesh/Embeddings/train/blip2-vid-embs-large-all/FineGD_data_vid_all/
+  val: /home/animesh/Embeddings/val2/blip2-vid-embs-large-all/FineGD_data_vid_all/
+  # train: /home/animesh/Embeddings/clip-1/clip-rn50-embs-all-1/FineGD_data_vid_all
+  # val: /home/animesh/Embeddings/clip-1/clip-rn50-embs-all-1/FineGD_data_vid_all
+  # train: /home/animesh/Embeddings/train/clip-rn50-embs-all-15/FineGD_data_vid_all/
+  # val: /home/animesh/Embeddings/train/clip-rn50-embs-all-15/FineGD_data_vid_all/
+  # train: /home/animesh/Embeddings/languagebind/
+  # val: /home/animesh/Embeddings/languagebind/
+  # train: /home/animesh/Embeddings/AIM
+  # val: /home/animesh/Embeddings/AIM
+  # /home/animesh/Embeddings/clip-1/clip-rn50-embs-all-1/FineGD_data_vid_all

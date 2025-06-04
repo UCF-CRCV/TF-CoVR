@@ -1,0 +1,29 @@
+webvid_covr:
+  dataname: webvid-covr
+  _target_: src.data.webvid_covr.WebVidCoVRTestDataModule
+
+  image_size: ${model.ckpt.image_size}
+
+  vid_query_method: sample
+  # iterate: "target_video"
+  vid_frames: 15
+  emb_pool: query
+
+  batch_size: ${machine.batch_size}
+  num_workers: ${machine.num_workers}
+
+  # Paths
+  # annotation: /home/agupta2/FineGym-CoVR/annotations/val_finegym_circo.csv
+  # vid_dirs: /home/agupta2/FinePseudo-CoVR/datasets/subactions
+  # emb_dirs: /home/agupta2/FineGym-CoVR/data/blip2-vid-embs-large-all/subactions
+
+  annotation: /home/animesh/FineGym-CoVR-Github/annotation/webvid-covr/webvid8m-covr_test.csv
+  vid_dirs: /home/animesh/FineGym-CoVR-Github/datasets/datasets/WebVid/8M/train
+  emb_dirs: /home/animesh/FineGym-CoVR-Github/datasets/datasets/WebVid/8M/blip2-vid-embs-large-all
+
+  # annotation: ${paths.work_dir}/annotation/webvid-covr/webvid8m-covr_test.csv
+  # vid_dirs: ${paths.datasets_dir}/WebVid/8M/train
+  # emb_dirs: ${paths.datasets_dir}/WebVid/8M/${model.basemodel}-vid-embs-${model.model.vit}-all
+
+  test:
+    _target_: src.test.${model.basemodel}.webvid_covr.TestWebVidCoVR

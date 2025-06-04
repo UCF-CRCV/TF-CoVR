@@ -1,0 +1,23 @@
+finegd-test-aim:
+  dataname: finegd-test-aim
+  _target_: src.data.finegd_test.FineGDTestDataModule
+
+  batch_size: ${machine.batch_size}
+  num_workers: ${machine.num_workers}
+
+  vid_dirs: ${paths.work_dir}/FineGD_videos
+  data_path: ${paths.work_dir}/annotations
+  emb_dir: ${paths.work_dir}/Embeddings/AIM
+  annotation: ${paths.work_dir}/annotations/test_finegd.csv
+  pkl_path: ${paths.work_dir}/embedding_files/aim_embeddings_12f_all_files.pkl
+  
+  split: "test"
+  vid_query_method: "middle"
+  vid_frames: 1
+  model: "aim"
+
+  image_size: ${model.ckpt.image_size}
+
+  test:
+    _target_: src.test.${model.basemodel}.circo_clip.TestCirco
+    split: ${test.finegd-test-aim.split}

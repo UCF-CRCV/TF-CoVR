@@ -1,0 +1,5 @@
+_target_: src.model.blip.loss.HardNegativeBCE
+name: hard-bce
+
+# alpha: 1
+beta: 0.5

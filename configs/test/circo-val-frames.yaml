@@ -1,0 +1,19 @@
+circo-val:
+  dataname: circo-val
+  _target_: src.data.circo.CIRCOTestDataModule
+
+  batch_size: ${machine.batch_size}
+  num_workers: ${machine.num_workers}
+
+  vid_dirs: /home/agupta2/FinePseudo-CoVR/datasets/subactions
+  data_path: /home/agupta2/FineGym-CoVR/annotations/
+  emb_dir: /home/agupta2/FineGym-CoVR/data/blip2-vid-embs-large-all/subactions
+  split: "val"
+  vid_query_method: "middle"
+  vid_frames: 1
+
+  image_size: ${model.ckpt.image_size}
+
+  test:
+    _target_: src.test.${model.basemodel}.circo.TestCirco
+    split: ${test.circo-val.split}

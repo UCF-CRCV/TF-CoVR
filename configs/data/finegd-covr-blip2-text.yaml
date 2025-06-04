@@ -1,0 +1,27 @@
+dataname: finegd-blip2-covr-text
+_target_: src.data.finegd_covr.FineGDCoVRDataModule
+
+image_size: ${model.ckpt.image_size}
+iterate: "target_video"
+vid_query_method: middle
+vid_frames: 1
+emb_pool: query
+n_embs: 15
+si_tc_weight: ${model.loss_terms.si_tc_weight}
+pkl_path: ${paths.work_dir}/embedding_files/blip2_tar_train_val_v2.pkl
+
+batch_size: ${machine.batch_size}
+num_workers: ${machine.num_workers}
+model: "blip2-text"
+
+annotation:
+  train: ${paths.work_dir}/annotations/train_video_pairs_v3.csv
+  val: ${paths.work_dir}/annotations/val_video_pairs_v2.csv
+
+vid_dirs:
+  train: ${paths.work_dir}/FineGD_videos
+  val: ${paths.work_dir}/FineGD_videos
+
+emb_dirs:
+  train: ${paths.work_dir}/Embeddings/train/blip2-vid-embs-large-all/FineGD_data_vid_all/
+  val: ${paths.work_dir}/Embeddings/val2/blip2-vid-embs-large-all/FineGD_data_vid_all/

@@ -1,0 +1,6 @@
+_target_: src.model.blip.loss.FalseNegativeContrastiveLoss
+name: fn-ce
+
+# alpha: 1
+# beta: 0.5
+mode: "elimination"

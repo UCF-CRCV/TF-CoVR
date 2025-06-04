@@ -1,0 +1,27 @@
+dataname: finegd-covr-aim
+_target_: src.data.finegd_covr.FineGDCoVRDataModule
+
+image_size: ${model.ckpt.image_size}
+iterate: "target_video"
+vid_query_method: middle
+vid_frames: 1
+emb_pool: query
+n_embs: 15
+si_tc_weight: ${model.loss_terms.si_tc_weight}
+pkl_path: ${paths.work_dir}/embedding_files/clip-15_train_val_test_v2.pkl
+
+batch_size: ${machine.batch_size}
+num_workers: ${machine.num_workers}
+model: "clip-mlp-15"
+
+annotation:
+  train: ${paths.work_dir}/annotations/train_finegd.csv
+  val: ${paths.work_dir}/annotations/val_finegd.csv
+
+vid_dirs:
+  train: ${paths.work_dir}/FineGD_videos
+  val: ${paths.work_dir}/FineGD_videos
+
+emb_dirs:
+  train: ${paths.work_dir}/Embeddings/train/clip-rn50-embs-all-15/FineGD_data_vid_all/ 
+  val: ${paths.work_dir}/Embeddings/train/clip-rn50-embs-all-15/FineGD_data_vid_all/ 

@@ -1,0 +1,31 @@
+circo-val:
+  dataname: circo-val
+  _target_: src.data.circo.CIRCOTestDataModule
+
+  batch_size: ${machine.batch_size}
+  num_workers: ${machine.num_workers}
+
+  vid_dirs: /home/animesh/FineGD_data_vid_all
+  data_path: /home/animesh/FineGym-CoVR-Github/annotations/
+  # emb_dir: /home/animesh/Embeddings/test2/FineGD_data_vid_all/blip2-vid-embs-large-all/FineGD_data_vid_all/
+  # emb_dir: /home/animesh/Embeddings/test2/FineGD_data_vid_all/blip2-vid-embs-large-all/FineGD_data_vid_all/
+  # emb_dir: /home/animesh/Embeddings/clip-1/clip-rn50-embs-all-1/FineGD_data_vid_all
+  # emb_dir: /home/animesh/Embeddings/AIM
+  emb_dir: /home/animesh/Embeddings/test/FineGD_data_vid_all/
+  # emb_dir: /home/animesh/Embeddings/train/clip-rn50-embs-all-15/FineGD_data_vid_all/
+  # emb_dir: /home/animesh/Embeddings/blip2-1/blip2-vid-embs-large-all/FineGD_data_vid_all
+  
+  split: "test"
+  vid_query_method: "middle"
+  vid_frames: 1
+  model: "blip-covr"
+
+  image_size: ${model.ckpt.image_size}
+
+  test:
+    # _target_: src.test.${model.basemodel}.circo_mlp.TestCirco
+    _target_: src.test.${model.basemodel}.circo.TestCirco
+    # _target_: src.test.${model.basemodel}.circo_text.TestCirco
+    # _target_: src.test.${model.basemodel}.circo_vision.TestCirco
+    # _target_: src.test.${model.basemodel}.utils_text.TestEvaluate
+    split: ${test.circo-val.split}
