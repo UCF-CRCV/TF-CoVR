@@ -15,7 +15,17 @@ Temporally Fine-Grained Videos</h1>
 
 #### University of Central Florida
 
-[![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/UCF-CRCV/TF-CoVR/blob/main/LICENSE)
+<p align="center">
+  <a href="https://arxiv.org/abs/2506.05274">
+    <img src="https://img.shields.io/badge/arXiv-TFCoVR-9065CA.svg?logo=arXiv" alt="arXiv">
+  </a>
+  <a href="https://animesh-007.github.io/TF-CoVR-WEBSITE/">
+    <img src="https://img.shields.io/badge/Project-Page-orange?logo=data:image/svg%2bxml;base64,...(truncated)" alt="Project Page">
+  </a>
+  <a href="https://github.com/UCF-CRCV/TF-CoVR/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+  </a>
+</p>
 
 <h5 align="left"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
@@ -47,6 +57,21 @@ Run following command:
 
 ## Testing  
 `python test.py data=finegd-covr-aim trainer=gpu model=aim_clip model/ckpt=aim test=finegd-test-aim-clip machine.num_workers=8 trainer.max_epochs=100 model.ckpt.path=/checkpoint/path/`
+
+## Citation
+If you use this dataset and/or this code in your work, please cite our [paper](https://arxiv.org/abs/2506.05274):
+
+```bibtex
+@misc{gupta2025playreplaycomposedvideo,
+      title={From Play to Replay: Composed Video Retrieval for Temporally Fine-Grained Videos}, 
+      author={Animesh Gupta and Jay Parmar and Ishan Rajendrakumar Dave and Mubarak Shah},
+      year={2025},
+      eprint={2506.05274},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.05274}, 
+}
+```
 
 ## 🙏 Acknowledgements
 
