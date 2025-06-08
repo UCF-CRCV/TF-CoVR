@@ -42,7 +42,6 @@ conda create -n tfcovr python=3.10 -y
 conda activate tfcovr
 pip install -r requirements.txt
 pip install git+https://github.com/openai/CLIP.git
-
 ```
 
 ## Dataset
