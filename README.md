@@ -6,30 +6,33 @@ Temporally Fine-Grained Videos</h1>
 </p>
 
 <p align="center">
-  <a href="https://animesh-007.github.io/">Animesh Gupta</a> &nbsp;|&nbsp;
-  <a href="https://www.linkedin.com/in/jay-himmatbhai-parmar/">Jay Parmar</a> &nbsp;|&nbsp;
-  <a href="https://www.linkedin.com/in/ishan-dave-crcv/">Ishan Rajendrakumar Dave</a> &nbsp;|&nbsp;
-  <a href="https://scholar.google.com/citations?user=p8gsO3gAAAAJ&hl=en&oi=ao">Mubarak Shah</a>
+  <a href="https://animesh-007.github.io/">Animesh Gupta<sup>1</sup></a> &nbsp;|&nbsp;
+  <a href="https://www.linkedin.com/in/jay-himmatbhai-parmar/">Jay Parmar<sup>1</sup></a> &nbsp;|&nbsp;
+  <a href="https://www.linkedin.com/in/ishan-dave-crcv/">Ishan Rajendrakumar Dave<sup>2</sup></a> &nbsp;|&nbsp;
+  <a href="https://scholar.google.com/citations?user=p8gsO3gAAAAJ&hl=en&oi=ao">Mubarak Shah<sup>1</sup></a> <br><br>
+<sup>1</sup>University of Central Florida&emsp;  <sup>2</sup>Adobe&emsp;
 </p>
 
+<div align="center">
 
-#### University of Central Florida
+[![](https://img.shields.io/badge/Project%20Page-ab99d7)](https://animesh-007.github.io/TF-CoVR-WEBSITE/)&nbsp;
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.05274-b31b1b.svg)](https://arxiv.org/abs/2506.05274)&nbsp;
+[![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-TF--CoVR-orange)](https://huggingface.co/datasets/ucf-crcv/TF-CoVR)
+[![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/UCF-CRCV/TF-CoVR/blob/main/LICENSE)&nbsp;
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=UCF-CRCV/TF-CoVR)
+
+---
+
+</div>
+
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2506.05274">
-    <img src="https://img.shields.io/badge/arXiv-TFCoVR-9065CA.svg?logo=arXiv" alt="arXiv">
-  </a>
-  <a href="https://animesh-007.github.io/TF-CoVR-WEBSITE/">
-    <img src="https://img.shields.io/badge/Project-Page-orange?logo=data:image/svg%2bxml;base64,...(truncated)" alt="Project Page">
-  </a>
-  <a href="https://github.com/UCF-CRCV/TF-CoVR/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-  </a>
+  <strong><em>Accepted in NeurIPS 2025</em></strong>
 </p>
 
-<h5 align="left"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
-#### Official GitHub repository for  `From Play to Replay: Composed Video Retrieval for Temporally Fine-Grained Videos`.
+<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
+
 
 ![tfcovr teaser gif](assets/teaser.gif)
 
