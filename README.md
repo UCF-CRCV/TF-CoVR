@@ -45,7 +45,7 @@ pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## Dataset
-To be released.
+Please follow the instructions from [DATASET.md](./data/DATASET.md) to access the dataset.
 
 ## Training
 

@@ -8,7 +8,7 @@ vid_frames: 1
 emb_pool: query
 n_embs: 15
 si_tc_weight: ${model.loss_terms.si_tc_weight}
-pkl_path: ${paths.work_dir}/embedding_files/aim_embeddings_12f_all_files.pkl
+pkl_path: ${paths.work_dir}/embedding_files/aim_embeddings_12f_train_val_test.pkl
 
 batch_size: ${machine.batch_size}
 num_workers: ${machine.num_workers}
