@@ -36,7 +36,7 @@ Temporally Fine-Grained Videos</h1>
 
 ![tfcovr teaser gif](assets/teaser.gif)
 
-> Composed Video Retrieval (CoVR) retrieves a target video given a query video and a modification text describing the intended change. Existing CoVR benchmarks emphasize appearance shifts or coarse event changes and therefore do not test the ability to capture subtle, fast-paced temporal differences. We introduce **TF-CoVR**, the first large-scale benchmark dedicated to temporally fine-grained CoVR. **TF-CoVR** focuses on gymnastics and diving and provides 180K triplets drawn from FineGym and FineDiving. Previous CoVR benchmarks focusing on temporal aspect, link each query to a single target segment taken from the same video, limiting practical usefulness. In **TF-CoVR**, we instead construct each <query, modification> pair by prompting an LLM with the label differences between clips drawn from different videos; every pair is thus associated with multiple valid target videos (3.9 on average), reflecting real-world tasks such as sports-highlight generation. To model these temporal dynamics we propose **TF-CoVR-Base**, a concise two-stage training framework: (i) pre-train a video encoder on fine-grained action classification to obtain temporally discriminative embeddings; (ii) align the composed query with candidate videos using contrastive learning. We conduct the first comprehensive study of image, video, and general multimodal embedding (GME) models on temporally fine-grained composed retrieval in both zero-shot and fine-tuning regimes. On TF-CoVR, TF-CoVR-Base improves zero-shot mAP@50 from 5.92 (LanguageBind) to 7.51, and after fine-tuning raises the state-of-the-art from 19.83 to 25.82.
+> Composed Video Retrieval (CoVR) retrieves a target video given a query video and a modification text describing the intended change. Existing CoVR benchmarks emphasize appearance shifts or coarse event changes and therefore do not test the ability to capture subtle, fast-paced temporal differences. We introduce **TF-CoVR**, the first large-scale benchmark dedicated to temporally fine-grained CoVR. **TF-CoVR** focuses on gymnastics and diving and provides 180K triplets drawn from FineGym and FineDiving. Previous CoVR benchmarks focusing on temporal aspect, link each query to a single target segment taken from the same video, limiting practical usefulness. In TF-CoVR, we instead construct each <query, modification> pair by prompting an LLM with the label differences between clips drawn from different videos; every pair is thus associated with multiple valid target videos (3.9 on average), reflecting real-world tasks such as sports-highlight generation. To model these temporal dynamics we propose **TF-CoVR-Base**, a concise two-stage training framework: (i) pre-train a video encoder on fine-grained action classification to obtain temporally discriminative embeddings; (ii) align the composed query with candidate videos using contrastive learning. We conduct the first comprehensive study of image, video, and general multimodal embedding (GME) models on temporally fine-grained composed retrieval in both zero-shot and fine-tuning regimes. On TF-CoVR, TF-CoVR-Base improves zero-shot mAP@50 from 5.92 (LanguageBind) to 7.51, and after fine-tuning raises the state-of-the-art from 19.83 to 27.22
 
 ## Environment Setup
 ```
@@ -46,6 +46,9 @@ conda activate tfcovr
 pip install -r requirements.txt
 pip install git+https://github.com/openai/CLIP.git
 ```
+
+## Pretrained weights
+Please download our stage 2 pretrained weights from google drive [here](https://drive.google.com/file/d/1SulhomaUi3VkH9Uo5Ce4L6vzxRoZ_mkP/view?usp=sharing).
 
 ## Dataset
 Please follow the instructions from [DATASET.md](./data/DATASET.md) to access the dataset.
