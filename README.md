@@ -27,7 +27,7 @@ Temporally Fine-Grained Videos</h1>
 
 
 <p align="center">
-  <strong><em>Accepted in NeurIPS 2025</em></strong>
+  <strong><em>Accepted in NeurIPS Datasets and Benchmarks track 2025</em></strong>
 </p>
 
 
@@ -48,10 +48,21 @@ pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## Pretrained weights
-Please download our stage 2 pretrained weights from google drive [here](https://drive.google.com/file/d/1SulhomaUi3VkH9Uo5Ce4L6vzxRoZ_mkP/view?usp=sharing).
+1. Please download our stage 1 pretrained weights from google drive [here](https://drive.google.com/file/d/14MSr6PxPhKgriF3PzA5DKp8X9sjUu_WK/view?usp=sharing).
+2. Please download our stage 2 pretrained weights from google drive [here](https://drive.google.com/file/d/1SulhomaUi3VkH9Uo5Ce4L6vzxRoZ_mkP/view?usp=sharing).
 
 ## Dataset
 Please follow the instructions from [DATASET.md](./data/DATASET.md) to access the dataset.
+
+## AIM Embeddings
+1. Please follow the [DATASET.md](./data/DATASET.md) to get access to original videos and converting them to `mp4` format.
+2. Update the videos path and path to save embeddings in [aim_emb.py](./AIM_Embeddings/aim_emb.py)
+3. Please run the following command to generate the embeddings:
+   ```
+   cd AIM_Embeddings
+   python aim_emb.py model.ckpt.path="stage-1-checkpoint-path"
+   ```
+   
 
 ## Training
 
