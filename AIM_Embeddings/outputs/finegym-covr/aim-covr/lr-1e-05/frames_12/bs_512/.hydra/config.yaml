@@ -1,0 +1,101 @@
+experiment: lr-${model.optimizer.lr}
+run_name: base
+seed: 1234
+logger_level: INFO
+paths: ${machine.paths}
+val: true
+evaluate:
+  _target_: src.test.${model.basemodel}.utils.evaluate
+data:
+  dataname: finegym-covr
+  _target_: src.data.data.FineGymCoVRDataModule
+  iterate: target_video
+  vid_query_method: middle
+  vid_frames: 12
+  max_frames: 12
+  skiprate: 1
+  image_resolution: 224
+  emb_pool: query
+  n_embs: 32
+  si_tc_weight: ${model.loss_terms.si_tc_weight}
+  batch_size: ${machine.batch_size}
+  val_batch_size: ${machine.val_batch_size}
+  num_workers: ${machine.num_workers}
+  annotation:
+    train:
+    - update path for training with train csv path
+    val:
+    - update path for training with val csv path
+  vid_dirs:
+    train:
+    - update path for training with raw videos path
+    val:
+    - update path for training with raw videos path
+machine:
+  paths:
+    root_dir: .
+    work_dir: ${hydra:runtime.cwd}
+    output_dir: ${hydra:runtime.output_dir}
+    datasets_dir: ${hydra:runtime.cwd}/datasets/
+    emb_dir: ${hydra:runtime.cwd}/embeddings
+    log_dir: ${paths.root_dir}/logs/
+  name: server
+  batch_size: 512
+  num_workers: 8
+  val_batch_size: 512
+trainer:
+  default_root_dir: ${paths.output_dir}
+  max_epochs: 100
+  accelerator: gpu
+  devices: 1
+  precision: 32-true
+  log_interval: 1
+  print_interval: 10
+  save_ckpt: last
+  fabric:
+    _target_: lightning.Fabric
+    accelerator: ${trainer.accelerator}
+    devices: ${trainer.devices}
+    precision: ${trainer.precision}
+    loggers: ${trainer.logger}
+  logger:
+    _target_: lightning.pytorch.loggers.csv_logs.CSVLogger
+    save_dir: ${paths.output_dir}
+    name: csv/
+    prefix: ''
+model:
+  modelname: aim-covr
+  basemodel: aim
+  _target_: src.model.aim.aim.aim_pretrained
+  ckpt_path: ${model.ckpt.path}
+  model:
+    _target_: src.model.aim.aim.AIM
+    vit_model: eva_clip_g
+    image_size: ${model.ckpt.image_size}
+    merge_type: avg
+    drop_path_rate: 0
+    use_grad_checkpoint: true
+    vit_precision: fp32
+    train_vit: true
+    num_query_token: 32
+    temperature: 0.07
+    vit: large
+    embed_dim: 768
+  optimizer:
+    _target_: torch.optim.AdamW
+    _partial_: true
+    lr: 1.0e-05
+    weight_decay: 0.05
+  scheduler:
+    _target_: src.tools.scheduler.CosineSchedule
+    init_lr: ${model.optimizer.lr}
+    min_lr: 0
+    decay_rate: ${model.optimizer.weight_decay}
+    max_epochs: ${trainer.max_epochs}
+  ckpt:
+    name: aim-covr
+    path: /home/animesh/Classification_FineGD/outputs/finegym-covr/aim-covr/lr-1e-05/frames_12/bs_8/best_val_86_acc_30.42.ckpt
+    image_size: 224
+  loss_terms:
+    si_ti_weight: 1.0
+    si_tc_weight: 0.0

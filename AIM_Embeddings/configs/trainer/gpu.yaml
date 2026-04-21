@@ -1,0 +1,6 @@
+defaults:
+  - default.yaml
+
+accelerator: gpu
+devices: 1
+# precision: 16-mixed

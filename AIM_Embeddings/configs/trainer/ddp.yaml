@@ -1,0 +1,13 @@
+defaults:
+  - default.yaml
+
+strategy: ddp
+
+accelerator: gpu
+devices: 2
+num_nodes: 1
+
+fabric:
+  num_nodes: ${trainer.num_nodes}
+  strategy: ${trainer.strategy}
+  precision: 16-mixed

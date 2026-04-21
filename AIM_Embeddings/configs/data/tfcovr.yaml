@@ -1,0 +1,28 @@
+dataname: finegym-covr
+_target_: src.data.data.FineGymCoVRDataModule
+
+iterate: "target_video"
+vid_query_method: middle
+vid_frames: 12
+max_frames: 12
+skiprate: 1
+image_resolution: 224
+emb_pool: query
+n_embs: 32
+si_tc_weight: ${model.loss_terms.si_tc_weight}
+
+batch_size: ${machine.batch_size}
+val_batch_size: ${machine.val_batch_size}
+num_workers: ${machine.num_workers}
+
+annotation:
+  train: ["update path for training with train csv path"]
+  val: ["update path for training with val csv path"]
+
+vid_dirs:
+  train: ["update path for training with raw videos path"]
+  val: ["update path for training with raw videos path"]
+
+# emb_dirs:
+#   train: ${paths.emb_dir}/finepseudo-vid-embs-${data.max_frames}-all
+#   val: ${paths.emb_dir}/finepseudo-vid-embs-${data.max_frames}-all

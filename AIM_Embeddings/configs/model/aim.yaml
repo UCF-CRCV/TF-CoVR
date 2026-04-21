@@ -1,0 +1,20 @@
+modelname: aim-covr
+basemodel: aim
+_target_: src.model.aim.aim.aim_pretrained
+
+ckpt_path: ${model.ckpt.path}
+
+model:
+  _target_: src.model.aim.aim.AIM
+  vit_model: "eva_clip_g"
+  image_size: ${model.ckpt.image_size}
+  merge_type: "avg"
+  drop_path_rate: 0
+  use_grad_checkpoint: True
+  vit_precision: "fp32"
+  train_vit: True
+  num_query_token: 32
+  temperature: 0.07
+  vit: "large"
+  embed_dim: 768
+
